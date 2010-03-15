@@ -3,20 +3,21 @@
 
 ![Sammy and Jack](sammy.jpg)
 
-!SLIDE bullets incremental
-# Sammy #
+!SLIDE bullets incremental smaller
 
 * framework Javascript
 * basé sur jQuery
-* basé sur les événements
+* basé sur les évènements
 * inspiré de Sinatra
 * crée par Aaron Quint
+* Testé intensivement
+* Libre ! (MIT)
 
 !SLIDE center 
 
 # Sinatra ![Sammy and Jack](sinatra.png) #
 
-* Framework Ruby cool
+## Framework Ruby cool ##
 
 ![Sammy and Jack](haha.jpg)
 
@@ -46,12 +47,10 @@
 # Fonctionnalités #
 
 * RESTful
-* Gestion des événements
+* Gestion des évènements
 * Plusieurs instances sur la même page
 * Gestion de l'historique
 * Système de plugin
-* Testé intensivement
-* Libre ! (MIT)
 
 !SLIDE subsection
 
@@ -108,19 +107,20 @@
 
 !SLIDE
 
-# put() et del() existe aussi #
+# put() et del() existent aussi #
 
 !SLIDE subsection
 
-# Evenements #
+# Evènements #
 
 !SLIDE code
 
-        bind('click', function(e) {
+        // évènement DOM classique
+        bind('click', function(e) { 
             console.log(e);
         });
 
-
+        // évènement custom
         bind('hello-word', function(e) {
             console.log(e);
         });
@@ -135,19 +135,21 @@
 !SLIDE bullets incremental
 
 * Template (Mustache, haml, ...)
-* Cache (LocalStorage, SessionStorage, Cookie)
+* Cache (LocalStorage, SessionStorage, Cookie, ...)
 * JSON
 * ...
 
-!SLIDE code
+!SLIDE code small
 
+       // déclaration d'un plugin dans une application
        use(Sammy.NestedParams);
 
 
        var app = $.sammy(function() {
-              this.use(Sammy.JSON);
+              this.use(Sammy.JSON); // on déclare 
               
               this.get('#/', function() {
+                 // on utilise
                 this.json({user_id: 123});
               });
             })
